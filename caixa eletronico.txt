@@ -1,0 +1,209 @@
+***************
+package tt;
+import java.util.Locale;
+import java.util.Scanner;
+
+
+public class Progam {
+	public static int login;
+	
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        
+       do {
+        System.out.println("________________________________________________________");
+        System.out.println("|  LOGIN                                               |");
+        System.out.println("| Desejar Realizar login como ADM ou Titular da conta? |");
+        System.out.println("| [1] ADM                                              |");
+        System.out.println("| [2] Titular da Conta                                 |");
+        System.out.println("| [0] Encerrar                                         |");
+        System.out.println("|______________________________________________________|");
+        System.out.println(" ");
+        login=sc.nextInt();
+        
+        if(login==1) {
+        	add.Administra(args);
+        	
+        }
+        if(login==2) {
+        	Titular.consulta(args);
+        }
+       }while(login!=0);
+       }
+}
+**********************
+package tt;
+
+
+public class Titular{	
+	public static void consulta (String[] args) {
+		try{
+		     Exception.titular();
+		    }
+		    catch (RuntimeException e){}
+		  }
+	}
+******************
+package tt;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Exception {
+	public static int senha, senha1=1234, senha2=4321, senha3=3214, senha4=4213;
+	public static int n2, n10=20, n20=20, n50=20;
+	public static int x2, x10, x20, x50;
+	public static int opcao, saque;
+	public static int operacao;
+	public static int encerrar;
+	
+public static void titular() {
+	Locale.setDefault(Locale.US);
+	Scanner sc = new Scanner(System.in);
+	Movimentação mov = new Movimentação();
+		
+		System.out.println("Informe sua senha");
+		senha=sc.nextInt();
+	
+	if(senha==1234||(senha==4321)||(senha==3214)||(senha==4213)){
+		do {
+			System.out.println("__________________________________");
+			System.out.println("|  Qual operação deseja realizar?|");
+			System.out.println("| [1] Verificar Saldo            |");
+			System.out.println("| [2] Realizar Saque             |");
+			System.out.println("| [3] Realizar Deposito          |");
+			System.out.println("| [0] encerrar                   |");
+			System.out.println("|________________________________|");
+			operacao=sc.nextInt();
+			
+			switch(operacao){
+				case 1: 		
+					mov.Saldo();
+				break;
+				
+				case 2:
+					Movimentação.Saque();
+				break;
+				
+				case 3:
+					mov.Deposito();
+				break;
+				
+				case 0:
+					System.out.println("Operação encerrada");
+				break;	
+			
+				default:
+					System.out.println("Codigo informado errado digite novamente");
+			}		
+		}while(operacao!=0);
+			Progam.main(null);
+
+			sc.close();
+		}else System.out.println("Senha invalida Voltando ao menu inicial"+"\r");		
+		}
+	}	
+		
+****************
+package tt;
+import java.util.Scanner;
+
+public class Movimentação {
+	Scanner sc = new Scanner(System.in);
+	public double retirada;
+	public static double saldo=200;
+	public static double saque;
+	public static double deposito;
+	public static double x2=2.00, x10=10.00, x20=20.00, x50=50.00;
+	public static int opcao, saque2, saque10, saque20, saque50, saldo2 = 1640;
+	
+	public static void Saque(){
+		Scanner sc = new Scanner(System.in);
+		
+		do {
+		System.out.println("______________________________");
+		System.out.println("|  SAQUE                     |");
+		System.out.println("| [1] Notas de R$2,00        |");
+		System.out.println("| [2] Notas de R$10,00       |");
+		System.out.println("| [3] Notas de R$20,00       |");
+		System.out.println("| [4] Notas de R$50,00       |");
+		System.out.println("| [0] Para encerrar o Saque  |");
+		System.out.println("|____________________________|");
+		opcao = sc.nextInt();
+		
+		switch(opcao){
+		case 1:
+			System.out.printf("Digite a quantiadade de notas a ser sacado " );
+			saque2 = sc.nextInt();
+			if(saque2<=20){
+				System.out.println("Saque realizado com sucesso.Você retirou "+ "R$ "+saque2*x2 +" em notas de R$ 2,00");
+			}else {
+				System.out.printf("Saldo insuficiente");
+			}
+			break;
+			
+		case 2:
+			System.out.printf("Digite a quantiadade de notas a ser sacado " );
+			saque10 = sc.nextInt();
+			if(saque10<=20){
+				System.out.println("Saque realizado com sucesso.Você retirou "+ "R$ "+ saque10*x10 +" em notas de R$ 10,00");
+			}else {
+				System.out.printf("Saldo insuficiente");
+			}
+			break;
+				
+		case 3:
+			System.out.printf("Digite a quantidade de notas a ser sacado " );
+			saque20 = sc.nextInt();
+			if(saque20<=20){
+				System.out.println("Saque realizado com sucesso.Você retirou "+ "R$ "+ saque20*x20 +" em notas de R$ 20,00");
+			}else {
+				System.out.printf("Saldo insuficiente");
+			}
+			break;
+				
+		case 4:
+			System.out.printf("Digite a quantidade de notas a ser sacado: " );
+			saque50 = sc.nextInt();
+			if(saque50<=20){
+				System.out.println("Saque realizado com sucesso.Você retirou "+ "R$ "+ saque50*x50 +" em notas de R$ 50,00");
+			}else {
+				System.out.printf("Saldo insuficiente");
+			}
+			break;
+		}
+			}while(opcao!=0);
+		System.out.println("Total Retirado Foi: "+"R$"+ ((saque2*x2)+(saque10*x10)+(saque20*x20)+(saque50*x50)) );
+		System.out.println(" ");
+	}
+		
+	public void Saldo(){
+		saldo = saldo+deposito;
+		System.out.println("Seu saldo é " + saldo );
+		System.out.println(" ");
+	}
+	
+	public void Deposito() {
+		System.out.println("Informe o valor do Deposito:");
+		deposito=sc.nextDouble();
+		System.out.println("Deposito de "+deposito+ "Realizado com sucesso");
+		System.out.println(" ");
+	}
+}
+*************
+package tt;
+
+public class add {
+	
+	
+	public static void Administra(String[] args) {
+
+		
+		System.out.println("Bem vindo, o Total de notas de R$ 2,00  a serem reportas são: " + Movimentação.saque2);
+		System.out.println("Bem vindo, o Total de notas de R$ 10,00 a serem reportas são: " + Movimentação.saque10);
+		System.out.println("Bem vindo, o Total de notas de R$ 20,00 a serem reportas são: " + Movimentação.saque20);
+		System.out.println("Bem vindo, o Total de notas de R$ 50,00 a serem reportas são: " + Movimentação.saque50);
+		System.out.println(" ");
+	}
+
+}
